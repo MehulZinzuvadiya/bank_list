@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'Model/dataModel.dart';
 
@@ -8,7 +9,6 @@ class BankDetails extends StatefulWidget {
   @override
   State<BankDetails> createState() => _BankDetailsState();
 }
-
 class _BankDetailsState extends State<BankDetails> {
   @override
   Widget build(BuildContext context) {
@@ -21,6 +21,21 @@ class _BankDetailsState extends State<BankDetails> {
         ),
         centerTitle: true,
       ),
+          body: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                ElevatedButton(onPressed: (){
+                    launchUrl(Uri.parse("${m1.website}"));
+                }, child: Text("Visit Website")),
+                SizedBox(height: 10,),
+                ElevatedButton(onPressed: (){
+                  launchUrl(Uri.parse("tel: ${m1.contact}"));
+                }, child: Text("Call us")),
+              ],
+            ),
+          ),
 
     ));
   }

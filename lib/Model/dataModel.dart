@@ -1,5 +1,6 @@
 class dataModel
 {
-  String? name;
-  dataModel(this.name);
+  String? name,website,contact;
+
+  dataModel(this.name, this.website, this.contact);
 }

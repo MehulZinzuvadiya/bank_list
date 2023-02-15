@@ -21,6 +21,30 @@ class _HomeScreenState extends State<HomeScreen> {
     "9.Induslnd Bank Ltd",
     "10.South Indian Bank Ltd.",
   ];
+  List website = [
+    "https://www.bankofbaroda.in/",
+    "https://bankofindia.co.in/",
+    "https://www.centralbankofindia.co.in/en",
+    "https://www.pnbindia.in/",
+    "https://www.onlinesbi.sbi/",
+    "https://www.axisbank.com/",
+    "https://www.hdfcbank.com/",
+    "https://www.icicibank.com/",
+    "https://www.indusind.com/in/en/personal.html",
+    "https://www.southindianbank.com/",
+  ];
+  List contact=[
+    "1800 258 44 55",
+    "1800 103 1906",
+    "1800 22 1911",
+    "1800 180 2222",
+    "1800 1234",
+    "1860 419 5555",
+    "1800 202 6161",
+    "1800 1080",
+    "1860 267 7777",
+    "1800 425 1809",
+  ];
   List images = [];
   List color = [
     Colors.orange,
@@ -52,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
         itemCount: bank.length,
         physics: const BouncingScrollPhysics(),
         itemBuilder: (context, index) {
-          return BankWidget(bank[index], color[index]);
+          return BankWidget(bank[index], color[index], website[index],contact[index]);
         },
       ),
     ));
@@ -61,10 +85,12 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget BankWidget(
     String n1,
     Color c1,
+    String w1,
+      String call,
   ) {
     return InkWell(
       onTap: () {
-        dataModel m1 = dataModel(n1);
+        dataModel m1 = dataModel(n1, w1,call);
         Navigator.pushNamed(context, 'details', arguments: m1);
       },
       child: Container(
